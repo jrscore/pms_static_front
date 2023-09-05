@@ -1,0 +1,18 @@
+:root {
+	--light-text: #000;
+	--dark-text: #FFF;
+	--light-bg: #DDD; /* 라이트모드의 어두운 배경 */
+	--dark-bg: #222;  /* 다크모드의 밝은 배경 */
+
+	--text-color: var(--light-text);
+	--bg-color: var(--light-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		 --text-color: var(--dark-text);
+		 --bg-color: var(--dark-bg);
+	}
+}
+
+

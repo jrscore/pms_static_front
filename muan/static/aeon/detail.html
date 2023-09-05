@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Data Table</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./asset/header.css" rel="stylesheet">
+</head>
+
+<body>
+	<div id="header"></div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+	$(function(){
+		$("#header").load("header.html"); 
+	});
+	</script>
+
+
+	<div class="container mt-4">
+		<table class="table table-bordered table-hover" id="data-table">
+			<thead>
+				<tr>
+					<th>no</th>
+					<th>stt</th>
+					<th>vdc</th>
+					<th>vac</th>
+					<th>vcb</th>
+					<th>pwr</th>
+					<th>day</th>
+					<th>yld</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<script src="./asset/list.js"></script>
+</body>
+
+</html>

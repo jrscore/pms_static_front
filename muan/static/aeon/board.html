@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Display Data</title>
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./asset/header.css" rel="stylesheet">
+	<style>
+		/* 페이지 전체 설정 */
+		body,
+		html {
+			height: 100%;
+			/* margin: 16px; */
+			overflow: hidden;
+		}
+
+
+
+		/* 중앙 정렬을 위한 설정 */
+		/* Grid 영역 설정 */
+		/* .main-container {
+			margin: 16px;
+			border-radius: 32px;
+			margin-bottom: 32px;
+			width: 80%;
+			max-width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		 */
+		/* Grid 영역 설정 */
+		.grid-container {
+			background-color: rgba(255, 255, 255, 0.3);
+			padding: 32px;
+			margin: 16px;
+			border-radius: 32px;
+			margin-bottom: 32px;
+			height: 200px;
+			/* 중앙 정렬을 위한 설정 */
+			margin-left: auto;
+			margin-right: auto;
+			display: flex;
+			/* Flexbox를 사용하여 자식 요소들을 가로로 배치 */
+			align-items: center;
+			/* 자식 요소들을 수직으로 중앙 정렬 */
+		}
+
+		/* body::before {
+			content: "";
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-image: url('./asset/img/solar.jpg');
+			background-size: cover;
+			background-position: center;
+			opacity: 0.6;
+			z-index: -1;
+		} */
+		/* 이 값을 변경하여 알파값 조절 */
+
+		/* Inverter 영역 설정 */
+		.inv-container {
+			margin: 16px;
+			background-color: rgba(255, 255, 255, 0.3);
+			border-radius: 10px;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+
+		.inv_card {
+			border-radius: 20px;
+			padding: 8px;
+			margin: 16px;
+			width: 120px;
+			height: 120px;
+			box-sizing: border-box;
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+		.right-align {
+			text-align: right;
+		}
+
+		.left-align {
+			text-align: left;
+		}
+
+		.on-status {
+			background-color: rgba(0, 0, 255, 0.5);
+			/* 파란색 50% 투명도 */
+		}
+
+		.off-status {
+			background-color: rgba(255, 0, 0, 0.9);
+			/* 빨간색 50% 투명도 */
+		}
+
+		/* 가로 스크롤 방지 */
+		body {
+			overflow-x: hidden;
+		}
+
+		.container-fluid.container-xl {
+			justify-content: flex-end;
+			/* 오른쪽 정렬 */
+		}
+
+		.d-flex.align-items-center {
+			align-items: flex-end;
+			/* h1을 아래쪽으로 정렬 */
+		}
+
+		.grid_data {
+			font-size: 90px;
+			/* 글꼴 크기 설정 */
+			color: blue;
+			/* 파란색으로 설정 */
+			margin-right: 40px;
+			text-align: right;
+			width: 100%;
+		}
+
+		.grid_title {
+			font-size: 60px;
+			/* 글꼴 크기 설정 */
+			color: black;
+			/* 파란색으로 설정 */
+			/* margin-left: px; */
+			text-align: left;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="header"></div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(function () {
+			$("#header").load("header.html");
+		});
+	</script>
+
+	<!-- <div class="container-fluid main-container" id="root"> -->
+
+	<!-- Grid영역 -->
+	<div id="grid">
+		<!-- 첫 번째 줄 -->
+		<div class="row">
+			<div class="col">
+				<div class="container-fluid grid-container">
+					<div class="grid_title">현재출력</div>
+					<div id="grid_pwr" class="grid_data"></div>
+					<!-- <span class="margin-left: 10px">kW</span> -->
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col">
+				<div class="container-fluid grid-container">
+					<div class="grid_title">금일발전</div>
+					<div id="grid_day" class="grid_data"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 두 번째 줄 -->
+		<div class="row">
+			<div class="col">
+				<div class="container-fluid grid-container">
+					<div class="grid_title">누적발전</div>
+					<div id="grid_yld" class="grid_data">1234</div>
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col">
+				<div class="container-fluid grid-container">
+					<div class="grid_title">탄소저감</div>
+					<div id="grid_co2" class="grid_data"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- inverter영역 -->
+	<div class="container-fluid inv-container" id="inv_container">
+		<div class="placeholder">Loading...</div>
+	</div>
+
+
+	<!-- </div> -->
+
+	<!-- Bootstrap JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+	<script src="./asset/board.js"></script>
+</body>
+
+</html>
